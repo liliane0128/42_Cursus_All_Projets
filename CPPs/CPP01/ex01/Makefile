@@ -1,0 +1,33 @@
+NAME = Moar_brainz
+
+CXX	= c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
+
+INCLUDE = Zombie.hpp
+
+OBJ_DIR = objs/
+SRCS = Zombie.cpp zombieHorde.cpp main.cpp
+OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
+DEPS =	$(OBJS:.o=.d)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR)%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ_DIR)
+	rm -f $(DEPS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+-include $(DEPS)
+
+.PHONY: all clean fclean re

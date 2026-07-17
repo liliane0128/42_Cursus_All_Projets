@@ -1,0 +1,12 @@
+.git
+.gitignore
+README.md
+Dockerfile
+Dockerfile.*
+USER_DOC.md
+DEV_DOC.md
+docker-compose.yml
+*.log
+*.tmp
+*.sql
+.env

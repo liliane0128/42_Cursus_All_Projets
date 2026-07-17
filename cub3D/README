@@ -1,0 +1,58 @@
+################################################################################
+#                                                                              #
+#                                  cub3D                                       #
+#                       The 42 Raycasting Project                              #
+#                                                                              #
+################################################################################
+
+[ PROJECT OVERVIEW ]
+cub3D is a C-based 3D engine that utilizes the Raycasting technique to render
+a 2D map into a first-person 3D perspective. Inspired by Wolfenstein 3D, this
+project emphasizes low-level graphics programming, mathematical optimization,
+and strict adherence to the 42 Norm standards.
+
+[ FEATURES ]
+- Smooth First-Person Movement: WASD to move, Arrows to rotate.
+- Wall Textures: Different XPM textures for North, South, East, and West walls.
+- Sprites: Interactive 2D objects that can jump in place.
+- Z-Buffer: Prevents sprites from appearing inside walls.
+- Dynamic UI: Shows score and a simple progress bar.
+- Map Validation: Ensures the map is fully closed and correct.
+
+[ TECHNICAL SPECIFICATIONS ]
+- Language: C
+- Graphics Library: MiniLibX
+- Coding Standard: 42 Norm
+- Main Algorithms:
+    * Raycasting for walls
+    * Simple vector math for sprites and camera
+
+[ COMPILATION & EXECUTION ]
+To compile the project, run:
+    make
+
+To launch the engine with a specific map:
+    ./cub3D Maps/pink_pony_club.cub
+
+[ CONTROLS ]
+- W, A, S, D : Move forward, backward, left, and right.
+- LEFT/RIGHT : Rotate the camera view.
+- Mouse      : Rotate the camera view.
+- Q, E       : Decrease / Increase mouse sensitivity.
+- O			 : Open door.
+- ESC        : Close the game safely.
+
+
+[ MAP RULES ]
+Map files (.cub) must include:
+- Texture paths: NO, SO, WE, EA.
+- Colors: F (Floor) and C (Ceiling) in R,G,B format.
+- Grid:
+    1 = Wall
+    0 = Empty Space
+    N/S/E/W = Player Starting Position & Direction
+- Bonus: 
+    2, 3, 4, 5 = Sprites
+	D = Door
+
+################################################################################
